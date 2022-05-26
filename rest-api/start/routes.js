@@ -1,5 +1,7 @@
 'use strict'
 
+const { RouteGroup } = require('@adonisjs/framework/src/Route/Manager');
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -16,10 +18,6 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
-
-Route.post('usuarios/registro',() => {
-  return { mensaje: 'Hola Academia Coder registraste un usuario'}
-})
+Route.group(() => {
+  Route.post('usuarios/registro', 'UserController.store');
+}).prefix('api/v1/');
