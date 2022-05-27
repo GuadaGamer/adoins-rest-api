@@ -1,6 +1,6 @@
 'use strict'
 
-const Proyecto = use('App/Models/Proyecto');
+const Proyecto = use('App/Models/Projecto');
 
 class ProyectoController {
     async index({ auth }){
@@ -11,12 +11,12 @@ class ProyectoController {
     async create({ auth, request }){
         const user = await auth.getUser();
         const {nombre} = request.all();
-        const project = new Proyecto();
-        project.fill({
+        const proyecto = new Proyecto();
+        proyecto.fill({
             nombre
         });
-        await user.proyectos.save(project);
-        return project;
+        await user.proyectos().save(proyecto);
+        return proyecto;
     }
 }
 

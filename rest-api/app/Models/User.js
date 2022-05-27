@@ -36,7 +36,7 @@ class User extends Model {
   }
 
   proyectos (){
-    return this.hasMany('App/Models/Proyectos')
+    return this.hasMany('App/Models/Projecto')
   }
 }
 
