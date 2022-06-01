@@ -19,9 +19,6 @@ const { RouteGroup } = require('@adonisjs/framework/src/Route/Manager');
 const Route = use('Route')
 
 Route.group(() => {
-  Route.get('/', async () => {
-    return {status: 'Succes Deploy Heroku'}
-  })
   Route.post('usuarios/registro', 'UserController.store');
   Route.post('usuarios/login', 'UserController.login');
   //rutas de los proyectos
