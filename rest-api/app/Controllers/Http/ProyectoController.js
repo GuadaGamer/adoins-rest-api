@@ -13,6 +13,7 @@ class ProyectoController {
         const user = await auth.getUser();
         const { id } = params;
         const proyecto = await Proyecto.find(id);
+        console.log("aqui");
         AutorizacionService.verificarPermiso(proyecto, user);
         return await user.proyectos().fetch();
     }
