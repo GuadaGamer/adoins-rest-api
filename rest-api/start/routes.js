@@ -26,6 +26,7 @@ Route.group(() => {
   Route.post('proyectos', 'ProyectoController.create').middleware('auth');
   Route.delete('proyectos/:id', 'ProyectoController.destroy').middleware('auth');
   Route.patch('proyectos/:id', 'ProyectoController.update').middleware('auth');
+  Route.get('proyectos/:id', 'ProyectoController.getOne').middleware('auth');
   //rutas de las tareas
   Route.post('proyectos/:id/tareas', 'TareaController.create').middleware('auth');
   Route.get('proyectos/:id/tareas', 'TareaController.index').middleware('auth');

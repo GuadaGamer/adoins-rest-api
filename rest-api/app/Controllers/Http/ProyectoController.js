@@ -9,6 +9,14 @@ class ProyectoController {
         return await user.proyectos().fetch();
     }
 
+    async getOne({ auth, params }){
+        const user = await auth.getUser();
+        const { id } = params;
+        const proyecto = await Proyecto.find(id);
+        AutorizacionService.verificarPermiso(proyecto, user);
+        return await user.proyectos().fetch();
+    }
+
     async create({ auth, request }){
         const user = await auth.getUser();
         const {nombre} = request.all();
